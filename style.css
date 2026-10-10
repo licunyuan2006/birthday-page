@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Microsoft Yahei",sans-serif;
+    /* 深色背景，解决变白问题 */
+    background: linear-gradient(#0b132b,#1c2541,#3a506b);
+    color: #fff;
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+/* 烟花画布：只在页面下半部分（文字区域），不遮挡照片 */
+#fireCanvas{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 55vh;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.container{
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 30px 20px 40px;
+}
+.top-title{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.top-title h1{
+    font-size: 38px;
+    letter-spacing: 4px;
+    color: #ffeaa7;
+    text-shadow: 0 0 10px #ffd70060;
+    margin-bottom: 8px;
+}
+.top-title p{
+    font-size: 17px;
+    opacity: 0.85;
+}
+
+/* 轮播大图，一打开就看见，照片尺寸充足 */
+.slider{
+    width: 100%;
+    height: 460px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 30px #ffffff20;
+    margin-bottom: 30px;
+    background-color: #000;
+}
+.slider-item{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider-item.active{
+    opacity: 1;
+}
+.slider-item img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.slider-btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #ffffff44;
+    font-size: 26px;
+    text-align: center;
+    line-height: 46px;
+    cursor: pointer;
+    z-index: 100;
+}
+.prev{left: 10px;}
+.next{right: 10px;}
+
+.article{
+    background: #ffffff10;
+    padding: 35px;
+    border-radius: 20px;
+    line-height: 2;
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+.article h2{
+    font-size: 22px;
+    color: #ffeaa7;
+    margin-bottom: 15px;
+}
+.article p{
+    margin-bottom: 16px;
+    opacity: 0.92;
+}
+.sign{
+    text-align: right;
+    margin-top: 25px;
+    font-weight: bold;
+    color: #ffeaa7;
+}
+
+#musicBtn{
+    display: block;
+    margin: 0 auto 30px;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: #ffeaa7;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    z-index:100;
+}
+.footer{
+    text-align: center;
+    opacity: 0.75;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+/* 手机端适配，照片保持足够大 */
+@media (max-width: 550px){
+    .top-title h1{font-size: 28px;}
+    .slider{height: 340px;}
+    .article{padding: 22px; font-size:16px;}
+}
